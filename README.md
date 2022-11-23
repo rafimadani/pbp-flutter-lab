@@ -1,3 +1,34 @@
+# tugas 8
+### Jelaskan perbedaan Navigator.push dan Navigator.pushReplacement
+- Navigator.push : menambahkan route ke stack rute yang dikelola oleh Navigator
+- Navigator.pushReplacement : menambahkan route yang baru dan kemudian membuang route sebelumnya setelah route baru selesai di-load
+
+###  Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+- Padding : Mengatur posisi-posisi dari widget didalamnya
+- Column : Mengatur widget child nya dalam posisi vertikal
+- Form : Untuk meminta, menyimpan, memakai input data dari user
+- ListTile : seperti row, tetapi juga bisa menyimpan teks sebagai leading dan trailing
+- Card : Jujur kayak card di bootstrap aja sih, tapi isinya widget kayak ListTile dan sebagainya
+- Drawer : Seperti Navbar di bootstrap
+
+###  Sebutkan jenis-jenis event yang ada pada Flutter (contoh: onPressed).
+- onSaved: event yang terjadi ketika widget disimpan
+- onTap: event yang terjadi ketika widget di tap
+- onPressed: event yang terjadi ketika widget di klik
+- onChanged: event yang terjadi ketika widget diubah
+
+###  Jelaskan bagaimana cara kerja Navigator dalam "mengganti" halaman dari aplikasi Flutter.
+Halaman di flutter itu seperti stack. Navigator.push menaruh halaman baru di atas halaman sebelumnya. Navigator.pop menghapus halaman teratas sehingga kembali ke halaman dibawahnya
+
+###  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+1. Membuat file form.dart
+2. Membuat budget.dart ( gunanya budget.dart itu seperti models.py di django, yaa engga mirip mirip banget sihh, tapi intinya adalah penyimpanan data berbentuk collection yang bisa di pass ke berbagai file dart) (https://github.com/rafimadani/pbp-flutter-lab/blob/main/lib/budget.dart) 
+2. Mengedit file form.dart agar bisa meminta input dari user, sekaligus validasi input, dan menyimpan input yang sudah valid ke class budget (https://github.com/rafimadani/pbp-flutter-lab/blob/main/lib/form.dart) 
+3. Membuat drawer.dart yang berisi drawer navigasi di app (https://github.com/rafimadani/pbp-flutter-lab/blob/main/lib/drawer.dart)
+4. Mendeclare MyDrawer() di setiap file di folder lib
+3. Membuat data.dart
+4. Mengedit file data.dart agar bisa menampilkan data yang ada di class budget, termasuk menghandle exception bila tidak ada data di class budget (sehingga tidak error) (https://github.com/rafimadani/pbp-flutter-lab/blob/main/lib/data.dart)
+5. Selesai :)
 # tugas 7
 
 ### Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget dan jelaskan perbedaan dari keduanya.
