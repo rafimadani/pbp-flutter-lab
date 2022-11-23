@@ -38,14 +38,14 @@ class Fields {
     required this.review,
   });
 
-  Watched watched;
+  String watched;
   String title;
   String rating;
   String releaseDate;
   String review;
 
   factory Fields.fromJson(Map<String, dynamic> json) => Fields(
-    watched: watchedValues.map[json["watched"]]!,
+    watched: json["watched"],
     title: json["title"],
     rating: json["rating"],
     releaseDate: json["release_date"],
@@ -89,29 +89,3 @@ Future<List<MyWatchList>> fetchMyWatchlist() async  {
 
   return list;
   }
-enum Watched { YES, NO }
-
-final watchedValues = EnumValues({
-  "No": Watched.NO,
-  "Yes": Watched.YES
-});
-
-enum Model { MYWATCHLIST_MOVIESITEM }
-
-final modelValues = EnumValues({
-  "mywatchlist.moviesitem": Model.MYWATCHLIST_MOVIESITEM
-});
-
-class EnumValues<T> {
-  late Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
-}

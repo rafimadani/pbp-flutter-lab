@@ -1,6 +1,6 @@
 import 'package:counter_7/model/mywatchlist.dart';
 import 'package:flutter/material.dart';
-
+import 'package:counter_7/page/drawer.dart';
 class WatchlistSpecific extends StatefulWidget {
   const WatchlistSpecific({super.key, required this.watchlist});
 
@@ -16,10 +16,9 @@ class _WatchlistSpecificState extends State<WatchlistSpecific> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, //untuk menghapus automatic backbutton di appbar
         title: Text(widget.title),
-
       ),
+      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Container(
             padding: const EdgeInsets.all(20),
