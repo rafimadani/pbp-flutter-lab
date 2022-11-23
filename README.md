@@ -1,3 +1,50 @@
+# tugas 9
+###  Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+Sepertinya bisa, untuk pengambilan data json tanpa model bisa dilakukan dengan contoh di codingan saya sendiri, di file mywatchlist.dart yang ada di model, pengambilan data json bisa dilakukan tanpa membuat model dikarenakan hasil parsing akan disimpan di list. Namun, membuat model akan lebih efektif untuk pemakaian data json selanjutnya, karena dengan membuat model, value lebih mudah di panggil ketika di render di page.
+### Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+- FutureBuilder
+
+Widget yang perannya adalah menjalankan beberapa fungsi asinkron dan berdasarkan hasil fungsi tersebut, UI kita akan diperbarui.
+
+- InkWell
+
+Inkwell adalah widget yang dapat merespon dengan tap ketika di klik. Inkwell berbentuk kotak dan dapat diisi value string. Kelebihannya adalah bisa di klik dan dapat menjalankan event tertentu kalau di klik.
+
+- Richtext
+
+RichText adlaah widget yang bisa menampilkan teks  menggunakan beberapa gaya berbeda. Namun, drawback nya adalh setiap widget text didalamnya harus di style dengan spesifik dan eksplisit.
+ 
+- Sisanya sama dengan tugas 8 :)
+
+###  Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+- Pertama, membuat model dari class mywatchlist. Untuk ini, kita bisa memanfaatkan tools https://app.quicktype.io/
+- Lalu, kita membuat function yang bisa memasukan data json ke dalam model yang kita sudah buat sebelumnya. Kita sebut saja function "decoder" 
+- Setelahnya, kita membuat function untuk mengambil data json dari website yang kita mau. Kita sebut saja function "retriever" .Setelah retriever tersebut berhasil mendeteksi json di website tersebut, maka retriever tersebut akan memasukan data json yang terdeteksi ke dalam model, memanfaatkan function decoder yang sudah kita buat.
+- Setelah selesai, maka data json sudah menjadi object di dalam model class kita.
+- Lalu di file page tertentu yang berformat dart , kita memanggil function retriever. Maka data json sudah bisa ditampilkan di flutter dan bisa diolah sesuai kesukaan kita
+
+###  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+-  Menambahkan tombol navigasi pada drawer/hamburger untuk ke halaman mywatchlist.
+Cukup ditambahkan widget Listtitle di drawer.dart yang terletak di folder page
+
+-  Membuat satu file dart yang berisi model mywatchlist.
+
+Membuat file dart baru di folder model, lalu menggunakan https://app.quicktype.io/ untuk membuat modelnya. Lalu menggunakan template dari tutorial 8 untuk membuat function yang memasukan data json dari web heroku ke model. ( Hehehe 3R: Reuse, Recycle, Reduce adalah semboyan saya :) )
+
+- Menambahkan halaman mywatchlist yang berisi semua watch list yang ada pada endpoint JSON di Django yang telah kamu deploy ke Heroku sebelumnya (Tugas 3). Pada bagian ini, kamu cukup menampilkan judul dari setiap mywatchlist yang ada.
+
+Membuat file dart baru di folder page. Lalu memanggil function yang ada di file model sebelumnya. Lalu setelah itu, gunakan futurebuilder untuk membuat widget widgetnya.
+
+- Membuat navigasi dari setiap judul watch list ke halaman detail, Menambahkan halaman detail untuk setiap mywatchlist yang ada pada daftar tersebut. Halaman ini menampilkan judul, release date, rating, review, dan status (sudah ditonton/belum)
+
+Menggunakan Inkwell agar judul yang di klik bisa menjalankan event Navigator.push() ke page yang baru. Lalu, agar data spesifik seperti release date, rating, dll bisa ditampilkan di page baru, maka snapshot.data![index]) dijadikan parameter di statenya.
+
+-  Menambahkan tombol untuk kembali ke daftar mywatchlist
+
+Hanya seperti bisa, membuat tombol baru yang memiliki event Navigator.pop()
+
+
 # tugas 8
 ### Jelaskan perbedaan Navigator.push dan Navigator.pushReplacement
 - Navigator.push : menambahkan route ke stack rute yang dikelola oleh Navigator
