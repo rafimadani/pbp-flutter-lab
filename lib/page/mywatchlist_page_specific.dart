@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class WatchlistSpecific extends StatefulWidget {
   const WatchlistSpecific({super.key, required this.watchlist});
 
-  final String title = 'Detail';
+  final String title = 'Movie Detail';
   final MyWatchList watchlist;
 
   @override
@@ -16,8 +16,9 @@ class _WatchlistSpecificState extends State<WatchlistSpecific> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const BackButton(),
+        automaticallyImplyLeading: false, //untuk menghapus automatic backbutton di appbar
         title: Text(widget.title),
+
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -30,7 +31,7 @@ class _WatchlistSpecificState extends State<WatchlistSpecific> {
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        widget.watchlist.fields.title,
+                        widget.watchlist.fields.title.toString(),
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
@@ -88,9 +89,20 @@ class _WatchlistSpecificState extends State<WatchlistSpecific> {
                         style: const TextStyle(color: Colors.black87, fontFamily: 'Arial')
                     )
                 ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+
+                  child: MaterialButton(
+                    minWidth: double.maxFinite, // set minWidth to maxFinite
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () {Navigator.pop(context);},
+                    child: Text("Back"),
+                  )
+
+                )
               ],
             )
-
         ),
       ),
     );
